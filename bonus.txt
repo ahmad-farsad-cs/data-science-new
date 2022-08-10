@@ -1,0 +1,40 @@
+This file contains the details about the modeling done in the 4th part of the data science project. First of all the relevant columns are selected. The reason behind the selection of only these columns is to reduce the data dimensions and overall size of the data. The selected columns are ID, Time, Country, Province, City, Geo Graphy, and POI information. 
+
+First of All Outliers and Average values are checked carefully. We have checked that the mean of the data is away from the minimum and maximum values.
+
+The approxQuantile approach is used in PySpark to approximate the Quantile value. Since the 0 will give an exact value but will take a lot of time so we select 0.1 and 0.2.
+
+
+Based on Q1 and Q3, IQR is calculated. 
+Similarly, the mean value is stored in POI1 in a value. 
+
+The threshold is now selected based on IQR and mean. 
+
+Now the filter is used to remove the outliers based on thresholds. 
+
+Longitude is used to divide the data from a -10 to 10 scale. 
+
+Now the data is divided into 21 bins using histogram, digitization, and factorization method. 
+
+Based on 21 bins, 21 unique colors are assigned to the dataset.
+
+the new 21 colors will have their mark now on the folium map. 
+
+
+the longitude and latitude lists are prepared. 
+
+and radius is calculated.
+
+The final map is drawn using folium. 
+
+
+The main hypothesis testing done in this part is selecting the right threshold. It is not easy to select a particular value. 
+
+The approxQuantile method is week, hence it is difficult in pyspark to get a good threshold with this dataset.
+
+The case with POI 3 and 4 is more difficult and different because the values are away. But the method works for them as well. 
+
+the case with POI 1. The mean value is used as the final threshold and all distances above the mean are dropped. 
+
+
+The results show the group of nearest locations together on folium map. Which shows our method is successful. 
